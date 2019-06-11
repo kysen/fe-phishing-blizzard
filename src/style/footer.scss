@@ -1,0 +1,51 @@
+.app {
+  @media (max-width: 675px) {
+    .footer {
+      font-size: 1.1em;
+      height: 31px;
+      margin-bottom: 32px;
+      .footer-links {
+        width: 450px;
+      }
+    }
+  }
+}
+
+.footer {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  font-size: 1.2em;
+
+  margin-top: 100px;
+  margin-bottom: 40px;
+  .footer-links {
+    display: flex;
+    justify-content: space-between;
+    width: 550px;
+    a {
+      cursor: pointer;
+      color: $text-grey;
+      font-weight: 500;
+      &:hover {
+        color: white;
+      }
+    }
+    p {
+      color: $border-grey;
+      cursor: default;
+    }
+  }
+  .copyright {
+    cursor: default;
+    color: rgba(128, 128, 128, 0.678);
+    font-size: 0.9em;
+    font-weight: 600;
+    .copyright-logo {
+      font-size: 0.9em;
+    }
+  }
+}

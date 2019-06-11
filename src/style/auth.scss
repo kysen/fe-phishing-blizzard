@@ -1,0 +1,209 @@
+.app {
+  background-image: url("../../static/assets/images/other-blizzard-background.jpg");
+  background-repeat: no-repeat;
+  background-color: #0d1e30;
+  height: 100vh;
+  background-position-x: center;
+  display: grid;
+  justify-items: center;
+  @media (max-width: 1250px) {
+    background-image: url("../../static/assets/images/blizzard-background.jpg");
+    background-repeat: no-repeat;
+    background-color: #0d1e30;
+  }
+  @media (max-width: 675px) {
+    background-image: url("../../static/assets/images/smallest-blizzard-background.jpg");
+    background-size: 650px;
+    background-repeat: no-repeat;
+    background-color: #0d1e30;
+    .auth-wrapper {
+      margin-top: 15px;
+      .input-fields {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+.auth-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 55px;
+
+  .input-fields {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    justify-content: space-between;
+
+    //
+    .empty-field-wrapper {
+      margin-top: 12px;
+      margin-left: 1px;
+      margin-bottom: 5px;
+      width: 356px;
+      display: flex;
+      align-items: center;
+
+      border: 1px solid rgba(116, 0, 0, 0.664);
+      background-color: rgba(59, 12, 12, 0.89);
+      border-radius: 2px;
+
+      box-shadow: 0px 3px 8px 1px #000000;
+
+      .ban {
+        color: red;
+        height: 18px;
+        width: 18px;
+        margin-left: 14px;
+      }
+      .empty-field {
+        color: rgb(207, 207, 207);
+        font-size: 1.3em;
+        font-weight: 400;
+        padding: 11px;
+      }
+
+      //
+    }
+    input {
+      margin-top: 16px;
+      padding-left: 10px;
+      height: $item-height;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 1px solid $border-grey;
+      color: $text-grey;
+      border-radius: 2px;
+      outline: 0;
+      font-size: 17px;
+      font-weight: 400;
+      transition: 0.2s;
+      outline: 0;
+      &:focus {
+        border-color: #1e5f99;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+      }
+    }
+    button {
+      margin-top: 15px;
+
+      cursor: pointer;
+      height: $item-height;
+      color: #fff;
+      background-color: #0e86ca;
+      border: 1px solid #10a1de;
+      transition: 0.2s;
+      &:hover {
+        background-color: #00aeff;
+        border-color: #00aeff;
+      }
+      &:active {
+        background-color: #095386;
+        color: rgba(255, 255, 255, 0.8);
+        border-color: transparent;
+        box-shadow: inset 1.5px 1.5px 3px rgba(#000000, 0.5);
+        outline: none;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .divider {
+    cursor: default;
+    display: flex;
+    width: 100%;
+    height: 43px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: 550;
+    width: 360px;
+
+    color: $border-grey;
+
+    .line {
+      color: rgba(128, 128, 128, 0.315);
+      padding-top: 8px;
+      align-self: flex-start;
+      font-weight: 100;
+    }
+  }
+  .face-goog {
+    height: 40px;
+    width: 360px;
+
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      cursor: pointer;
+      width: 100%;
+      color: #fff;
+      border: 1px solid #0e86ca;
+      background: #005c99;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.2s;
+      &:hover {
+        background-color: #007acc;
+        border: 1px solid #00aeff;
+      }
+      &:active {
+        background-color: #005c99;
+        color: rgba(255, 255, 255, 0.8);
+        border: 1px solid #005c99;
+        box-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.5);
+        outline: none;
+      }
+      &:focus {
+        outline: none;
+      }
+      .facebook-logo {
+        font-size: 1.9em;
+        padding: 0px 5px;
+      }
+      p {
+        padding: 0px 5px;
+      }
+      .google-logo-wrapper {
+        height: 27px;
+        width: 27px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+        img {
+          height: 17px;
+        }
+      }
+    }
+    .lil-gap {
+      width: 10px;
+    }
+  }
+  .other-links {
+    margin-top: 25px;
+    width: 100%;
+    height: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 500;
+    span {
+      cursor: pointer;
+      color: #00aeff;
+      transition: color 0.2s;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
