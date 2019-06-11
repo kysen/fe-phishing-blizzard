@@ -1,4 +1,5 @@
-# React/Redux/Router Starter Project
+# Phishing Assignment. Watch where you type your info to any sight.
+
 
 > Provided for the students of the [Bottega Code School](https://bottega.tech/)
 
