@@ -15,7 +15,7 @@ library.add(faFacebookSquare, faBan);
 const Auth = props => {
   const [userEmail, setUserEmail] = React.useState("");
   const [userPassword, setUserPassword] = React.useState("");
-
+  //  this is a test
   const [emptyBox, makeEmptyBox] = React.useState();
 
   const handleEmpty = emptyField => {
@@ -26,7 +26,6 @@ const Auth = props => {
       </div>
     );
   };
-
   const phish = e => {
     e.preventDefault();
 
