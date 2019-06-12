@@ -1,10 +1,5 @@
 import React from "react";
 
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-
-import blizzardLogo from "../../static/assets/images/blizzard-logo.png";
-import googleLogo from "../../static/assets/images/google-logo.png";
-
 import NotFound from "./not-found";
 import Auth from "./auth";
 import Footer from "./footer";

